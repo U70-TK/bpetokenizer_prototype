@@ -19,7 +19,6 @@ s : ASCIIString
   ─[Lemma 7]→  s                     (UTF-8 decode = identity for ASCII)
 ```
 
-
 2. `test_roundtrip.py`: Test cases.
 
 Compare my result with the result by OpenAI's official tokenization library `tiktoken`. I'm testing it with the encoding data of GPT-4 `cl100k_base`, but the tokenization algorithm itself should be encoding-data-agnostic, and it should work if you change `cl100k_base` (GPT-4) to `o200k_base` (GPT-4o), etc. 
@@ -30,7 +29,17 @@ Helper functions to load `cl100k_base`, check input well-formed (as a test), and
 
 ---
 
-## Pseudocode in provable core
+## Execution
+
+To prove my prototype's correctness, I have implemented a `test_roundtrip.py` file so that I could compare it with OpenAI's official tokenization library `tiktoken`. You can run the test cases by running: 
+
+```python
+python test_roundtrip.py
+```
+
+---
+
+## Pseudocode in provable `core.py`
 
 1. Part 1: Character Classifiers
 
